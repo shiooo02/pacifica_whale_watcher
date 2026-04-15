@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 7%;
+    --foreground: 210 40% 92%;
+
+    --card: 230 25% 10%;
+    --card-foreground: 210 40% 92%;
+
+    --popover: 230 25% 10%;
+    --popover-foreground: 210 40% 92%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 230 25% 7%;
+
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 230 25% 7%;
+
+    --muted: 230 20% 15%;
+    --muted-foreground: 210 15% 55%;
+
+    --accent: 45 100% 55%;
+    --accent-foreground: 230 25% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --whale-cyan: 190 100% 50%;
+    --whale-magenta: 320 100% 60%;
+    --whale-amber: 45 100% 55%;
+    --whale-green: 160 100% 45%;
+    --whale-red: 0 90% 55%;
+
+    --glow-cyan: 0 0% 0% / 0, 190 100% 50% / 0.4;
+    --glow-magenta: 0 0% 0% / 0, 320 100% 60% / 0.4;
+
+    --surface-glass: 230 25% 10% / 0.6;
+    --surface-deep: 230 30% 5%;
+
+    --sidebar-background: 230 25% 7%;
+    --sidebar-foreground: 210 40% 92%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 230 25% 7%;
+    --sidebar-accent: 230 20% 15%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 230 20% 18%;
+    --sidebar-ring: 190 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow: hidden;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-glow-cyan {
+    text-shadow: 0 0 8px hsl(190 100% 50% / 0.6), 0 0 20px hsl(190 100% 50% / 0.3);
+  }
+
+  .text-glow-magenta {
+    text-shadow: 0 0 8px hsl(320 100% 60% / 0.6), 0 0 20px hsl(320 100% 60% / 0.3);
+  }
+
+  .text-glow-amber {
+    text-shadow: 0 0 8px hsl(45 100% 55% / 0.6), 0 0 20px hsl(45 100% 55% / 0.3);
+  }
+
+  .glass-surface {
+    background: hsl(230 25% 10% / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(230 20% 18% / 0.5);
+  }
+
+  .whale-pulse {
+    animation: whale-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes whale-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    5% { opacity: 0.8; }
+    10% { opacity: 1; }
+    15% { opacity: 0.9; }
+    50% { opacity: 1; }
+    55% { opacity: 0.85; }
+  }
+
+  .text-flicker {
+    animation: flicker 3s ease-in-out infinite;
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .animate-drift {
+    animation: drift 6s ease-in-out infinite;
+  }
+
+  @keyframes shockwave {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+  }
+
+  @keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-20px) scale(0.95); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
+  }
+}
